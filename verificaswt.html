@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="training.css">
+  <title>Smart World Technology</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="index.html">
+            <h1><span>S</span>mart <span>W</span>orld <span>T</span>echnology</h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="index.html#home" data-after="Home">Acceuil</a></li>
+            <li><a href="index.html#services" data-after="Service">Services</a></li>
+            <li><a href="index.html#projects" data-after="Projects">Détail</a></li>
+            <li><a href="index.html#about" data-after="About">A propos</a></li>
+            <li><a href="index.html#contact" data-after="Contact">Contacts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+  <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1>Hello, <span></span></h1>
+        <h1>It's Smart World Technology <span></span></h1>
+        <h1>Vous êtes au point de vérifier votre Certificat<span></span></h1>
+        <a href="verificaswt.html#VERIFIEZ" type="button" class="cta">Vérifier</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section  -->
+  <style>
+    /* Style du lien de téléchargement comme un bouton */
+    .bouton-telechargement {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0497e0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .bouton-telechargement:hover {
+      background-color: #14703f;
+    }
+  </style>
+  
+
+  <!-- Service Section -->
+  <section id="VERIFIEZ">
+  <b><b>
+      <h2 class="section-title">VERIFIEZ VOTRE CERTIFICAT ICI</h2>
+      <div class="col-center" style="text-align: center;">
+        <form id="formRecherche" onsubmit="rechercherElement(); return false;">
+          <h1><label for="recherche">Smile and Be smart With us</label></h1>
+          <input class="cta" size="40" type="text" id="recherche" placeholder="Entrez votre numéro de certificat" name="recherche" required>
+          <input style="color: rgb(1, 63, 19);" type="submit" class="cta" value="Rechercher">
+        </form>
+    
+        <!-- Liste de résultats -->
+        <div id="resultats">
+          <!-- Les résultats de la recherche seront affichés ici -->
+        </div>
+      </div>
+    
+      <script>
+        function rechercherElement() {
+          var termeRecherche = document.getElementById('recherche').value.toLowerCase();
+          var liste = [
+            { numero: "C202465652019-04", nom: "Luhinzo Lweka Adam", image: "img/Luhinzo_lweka_Adam.jpg" }
+          ];
+    
+          var resultats = [];
+    
+          for (var i = 0; i < liste.length; i++) {
+            // Vérifier si le terme de recherche correspond au numéro
+            if (liste[i].numero.toLowerCase() === termeRecherche) {
+              resultats.push(liste[i]);
+            }
+          }
+    
+          var resultatsDiv = document.getElementById('resultats');
+          resultatsDiv.innerHTML ="<p>" + termeRecherche +"  est un certificat vérifié délivré par Smart World Technology SARL</p>";
+    
+          if (resultats.length > 0) {
+            for (var j = 0; j < resultats.length; j++) {
+              var divResultat = document.createElement('div');
+              divResultat.classList.add('resultat');
+    
+              var img = document.createElement('img');
+              img.src = resultats[j].image;
+              img.alt = resultats[j].nom;
+              img.style.width = '250px';
+    
+              var aTelecharger = document.createElement('a');
+              aTelecharger.href = resultats[j].image;
+              aTelecharger.download = "certificat_" + resultats[j].nom + ".jpg"; // Utilisation de l'attribut download pour le téléchargement
+              aTelecharger.textContent = "Télécharger le certificat de " + resultats[j].nom;
+              aTelecharger.classList.add('bouton-telechargement'); // Ajouter la classe CSS pour le style du bouton
+
+              divResultat.appendChild(img);
+              divResultat.appendChild(aTelecharger);
+              resultatsDiv.appendChild(divResultat);
+            }
+          } else {
+            resultatsDiv.innerHTML = "<p>\"" + termeRecherche + "\" ❌​ n'est pas un certificat livré par Smart</p>";
+          }
+    
+          document.getElementById('recherche').value = '';
+        }
+      </script>
+</div>
+  </section>
+  <br><br>
+  <!-- End Service Section -->
+  <section>
+    <!-- Inclure la bibliothèque JSQRCode -->
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <style>
+        #qrcode {
+            width: 200px; /* Largeur du code QR */
+            height: 200px; /* Hauteur du code QR */
+            margin: 20px auto; /* Marge pour centrer le code QR */
+        }
+        .cta {
+            color: #14703f;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="section-title">GENERATEUR CODE QR SMAWOTECH</h2>
+    <div class="col-center" style="text-align: center;">
+        <h1><label for="contenu">Un code QR (Quick Response Code) est un type de code-barres à deux dimensions qui peut stocker une grande quantité d'informations, telles que des liens URL, du texte, des coordonnées géographiques, des informations de contact, etc. Les codes QR sont devenus populaires en raison de leur capacité à être lus rapidement et facilement par les smartphones et autres appareils équipés d'une caméra. <br><br>​​👇​👇​Créer maintenant​👇​​👇​</label></h1>
+        <input class="cta" size="40" type="text" id="contenu" placeholder="Entrez le contenu du code">
+        <button class="cta" style="color: #14703f;" onclick="genererCodeQR()">Générer QR Code</button>
+       
+
+        <!-- Div pour afficher le code QR -->
+        <div id="qrcode"></div>
+
+        <!-- Bouton pour générer le code QR -->
+        <button class="cta" style="display: none;text-align: center;" id="telechargerBtn" onclick="telechargerCodeQR()">Télécharger votre QR Code</button>
+    </div>
+
+    <script>
+        var qrcode = null; // Variable pour stocker le code QR actuel
+
+        function genererCodeQR() {
+            // Vérifier si un code QR existe déjà et le supprimer s'il existe
+            if (qrcode) {
+                qrcode.clear();
+                qrcode = null;
+                document.getElementById('qrcode').innerHTML = '';
+                document.getElementById('telechargerBtn').style.display = 'none'; // Cacher le bouton de téléchargement
+            }
+
+            var contenu = document.getElementById('contenu').value;
+            qrcode = new QRCode(document.getElementById('qrcode'), {
+                width: 200, // Largeur du code QR
+                height: 200 // Hauteur du code QR
+            });
+            qrcode.makeCode(contenu);
+            document.getElementById('telechargerBtn').style.display = 'block'; // Afficher le bouton de téléchargement après la génération du code QR
+        }
+
+        function telechargerCodeQR() {
+            if (qrcode) {
+                var canvas = document.querySelector('canvas');
+                var dataURL = canvas.toDataURL('image/png');
+
+                var a = document.createElement('a');
+                a.href = dataURL;
+                a.download = 'qrcode.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                alert('Générer d\'abord le code QR.');
+            }
+        }
+    </script>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about container">
+      <div class="col-center">
+        <div class="about-img">
+          <img src="./img/logo (2).png" alt="img">
+        </div>
+      </div>
+      <div class="col-right">
+        <h1 class="section-title">Nos <span>Formations</span></h1>
+        <h2>Historique de Smart World Technology SARL</h2>
+        <p style="text-align: center;">  
+            Nos formations en réseau, sécurité et programmation offrent un parcours complet et dynamique pour les étudiants souhaitant acquérir des compétences essentielles dans ces domaines en constante évolution. 
+            En ce qui concerne les réseaux, nos modules fournissent une compréhension approfondie des protocoles, des architectures et des technologies utilisées dans les réseaux informatiques modernes. Les étudiants apprennent à concevoir, configurer et administrer des réseaux, ainsi qu'à résoudre les problèmes de connectivité et de performance.
+            En ce qui concerne la sécurité informatique, nous mettons l'accent sur les techniques de protection des systèmes contre les menaces, les attaques et les vulnérabilités. Nos étudiants développent des compétences en matière d'analyse des risques, de détection d'intrusion, de cryptographie et de sécurisation des applications et des infrastructures.
+            
+            Enfin, dans le domaine de la programmation, nos formations couvrent un large éventail de langages et de concepts, allant des bases de la programmation jusqu'aux techniques avancées de développement logiciel.
+            Grâce à des projets pratiques, des laboratoires en ligne et des opportunités de stages, nos formations préparent les étudiants à réussir dans des carrières exigeantes et stimulantes dans les technologies de l'information. 
+</p>
+        <a download="" href="https://smawotech.github.io/form/"class="cta">S'inscrire à une formation</a>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+  <!-- carousel section -->
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div>
+        <h1 class="section-title">Nos <span>Contacts</span></h1>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+          <div class="contact-info">
+            <h2>+243 994 778 111</h2>
+            <h2>+243 833 561 724</h2>
+            <h2>+243 994 414 014</h2>
+            <h2>+243 817 096 042</h2>
+            <h2>+243 891 246 537</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+          <div class="contact-info">
+            <h2>smawotech2019@gmail.com</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
+          <div class="contact-info">
+            <h2>► Avenue Bwana Muzuri N°56/Quartier Matongé/Commune Mulekera/Ville de Beni/RDC</h2>
+            <h2>► Kalemie/Q. Industriel/Paix 1/ Boulevard Lumumba/Clôture de la polyclinique Santé Plus</h2>
+          </div>
+        </div>
+      </div>
+       <br>
+      <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2Fparfaitmusoka%2Fvideos%2F946906987024831%2F&show_text=true&width=560&t=0" width="560" height="420" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+      <a href="https://wa.link/1bulnr" style="display: table; font-family: sans-serif; text-decoration: none; margin: 1em auto; color: #fff; font-size: 0.9em; padding: 1em 2em 1em 3.5em; border-radius: 2em; font-weight: bold; background: #25d366 url('https://tochat.be/click-to-chat-directory/css/whatsapp.svg') no-repeat 1.5em center; background-size: 1.6em;">Ecrivez-nous sur Whatsapp</a>
+    </div>
+</div>
+</div>
+  </section>
+  
+  <!-- End Contact Section -->
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1>Smart World Technology SARL</h1>
+      </div>
+      <h2>Smile and Be Smart</h2>
+      <div class="social-icon">
+        <div class="social-item">
+        <a href="https://www.facebook.com/profile.php?id=100064055859092"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
+        </div>
+      </div>
+      <p>Copyright © 2024 Designed by Parfait Musoka
+      All rights reserved</p>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="./app.js"></script>
+</body>
+
+</html>
